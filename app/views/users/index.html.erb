@@ -1,0 +1,25 @@
+<% provide(:title, "Illib Home") %>
+<div class="container">
+  <h2>The Illibs</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Favorite Publisher</th>
+        <th>Number of Comics</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= user.username %>
+            <%= user.fav_pub %>
+            (<%= user.comics.length %> comics)
+          </td>
+          <td><%= link_to "Show", user %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
