@@ -1,0 +1,23 @@
+<div class="container">
+<h2><%= @comic.title %></h2>
+<h4><%= @comic.series %></h4>
+<h4>Issue.no:<%= @comic.issue_no %></h4>
+<p><%= comic_tag @comic.img_url, width: 200 %></p>
+
+<p><strong>Author:</strong><%= @comic.author %></p>
+<p><strong>Letterist:</strong><%= @comic.letterist %></p>
+<p><strong>Penciller:</strong><%= @comic.penciller %></p>
+<p><strong>Inker:</strong><%= @comic.inker %></p>
+<p><strong>Colorist:</strong><%= @comic.colorist %></p>
+<p><strong>Publisher:</strong><%= @comic.publisher %></p>
+<p><strong>Publish Date:</strong><%= @comic.publish_date %></p>
+<p><strong>Print Number:</strong><%= @comic.print_num %></p>
+
+<% if @comic.user.id = current_user.id %>
+  <p>
+    <%= link_to "Edit", edit_comic_path(@comic) %>
+    <%= link_to "Delete", comic_path(@comic) , method: :delete%>
+  </p>
+<% end %>
+</div>
+

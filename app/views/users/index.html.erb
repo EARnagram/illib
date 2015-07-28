@@ -1,6 +1,6 @@
-<% provide(:title, "Illib Home") %>
+<% provide(:title, "Illib.Home") %>
 <div class="container">
-  <h2>The Illibs</h2>
+  <h2>Illib.All</h2>
   <table class="table">
     <thead>
       <tr>
@@ -12,12 +12,9 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td>
-            <%= user.username %>
-            <%= user.fav_pub %>
-            (<%= user.comics.length %> comics)
-          </td>
-          <td><%= link_to "Show", user %></td>
+          <td><%= link_to user.username, user %></td>
+          <td><%= user.fav_pub %></td>
+          <td>(!!! user.comics.length %> comics)</td>
         </tr>
       <% end %>
     </tbody>

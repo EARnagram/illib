@@ -1,7 +1,28 @@
-<% provide(:title, "My Illib") %>
-
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
-
+<% provide(:title, "Illib.#{ @user.username }") %>
+<div class="container">
+  <h1>Illib.<%= @user.username %></h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Series</th>
+        <th>Issue No.</th>
+        <th>Author</th>
+        <th>Publisher</th>
+        <th>Check-In Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.comics.each do |comic| %>
+        <tr>
+          <td><%= link_to comic.title, comic %></td>
+          <td><%= link_to comic.series, comic %></td>
+          <td><%= link_to comic.issue_no, comic %></td>
+          <td><%= link_to comic.author, comic %></td>
+          <td><%= link_to comic.publisher, comic %></td>
+          <td><%= link_to comic.loan, comic %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</div>
 <!-- post = custom loan_comic method route to it - send id -->
