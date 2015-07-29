@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728022004) do
+ActiveRecord::Schema.define(version: 20150727220747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20150728022004) do
     t.integer  "issue_no"
     t.boolean  "loan"
     t.string   "checkin"
+    t.string   "creator"
     t.string   "author"
     t.string   "publisher"
     t.string   "penciller"
@@ -31,17 +32,10 @@ ActiveRecord::Schema.define(version: 20150728022004) do
     t.date     "publish_date"
     t.string   "img_url"
     t.integer  "print_num"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
-
-  create_table "comics_users", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "comic_id"
-  end
-
-  add_index "comics_users", ["comic_id"], name: "index_comics_users_on_comic_id", using: :btree
-  add_index "comics_users", ["user_id"], name: "index_comics_users_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

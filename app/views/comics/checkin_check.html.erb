@@ -1,0 +1,7 @@
+<div class="container">
+<h1>Check-In <%= @comic.title %>?</h1>
+<%= link_to "Check-In", "/checkin/#{@comic.id}" %>
+<%= link_to "cancel", "/users/#{current_user.id}" %>
+  </div>
+
+

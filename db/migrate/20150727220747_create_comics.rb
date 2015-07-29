@@ -6,6 +6,7 @@ class CreateComics < ActiveRecord::Migration
       t.integer :issue_no
       t.boolean :loan
       t.string :checkin
+      t.string :creator
       t.string :author
       t.string :publisher
       t.string :penciller
@@ -15,6 +16,7 @@ class CreateComics < ActiveRecord::Migration
       t.date :publish_date
       t.string :img_url
       t.integer :print_num
+      t.integer :user_id
 
       t.timestamps null: false
     end

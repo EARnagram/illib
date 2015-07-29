@@ -1,0 +1,11 @@
+<h1>Checkout <%= @comic.title %>?</h1>
+<%= form_tag "/loan/#{@comic.id}" do %>
+  <div class="field">
+    <%= label_tag "Who's Borrowing?" %><br>
+    <%= text_field_tag :checkin %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Loan Confirmed" %>
+  </div>
+<% end %>
+    <%= link_to "cancel", "/users/#{current_user.id}" %>

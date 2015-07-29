@@ -1,2 +1,39 @@
-<h1>Comics#index</h1>
-<p>Find me in app/views/comics/index.html.erb</p>
+<div class="container">
+
+<div class="row">
+  <div class="span11">
+    <h1 >Listing Comics</h1>
+  </div>
+  <div class="span1">
+    <%- if current_user %>
+      <%= link_to '+ New', new_comic_path, class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Comic</th>
+        <th>Title</th>
+        <th>Series</th>
+        <th>Issue No.</th>
+        <th>Creator</th>
+        <th>Publisher</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.comics.each do |comic| %>
+        <tr>
+          <td><%= image_tag comic.img_url, width: 100 %></td>
+          <td><%= link_to comic.title, comic %></td>
+          <td><%= link_to comic.series, comic %></td>
+          <td><%= link_to comic.issue_no, comic %></td>
+          <td><%= link_to comic.creator, comic %></td>
+          <td><%= link_to comic.publisher, comic %></td>
+        </tr>
+      <% end %>
+    </tbody>
+
+<br>
+
+</div>

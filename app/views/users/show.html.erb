@@ -7,7 +7,7 @@
         <th>Title</th>
         <th>Series</th>
         <th>Issue No.</th>
-        <th>Author</th>
+        <th>Creator</th>
         <th>Publisher</th>
         <th>Check-In Status</th>
       </tr>
@@ -17,10 +17,16 @@
         <tr>
           <td><%= link_to comic.title, comic %></td>
           <td><%= link_to comic.series, comic %></td>
-          <td><%= link_to comic.issue_no, comic %></td>
-          <td><%= link_to comic.author, comic %></td>
+          <td><%= link_to "#{comic.issue_no}", comic %></td>
+          <td><%= link_to comic.creator, comic %></td>
           <td><%= link_to comic.publisher, comic %></td>
-          <td><%= link_to comic.loan, comic %></td>
+          <td>
+            <% if comic.loan %>
+              <%=  link_to comic.checkin, "/checkin_check/#{comic.id}" %>
+            <% else %>
+              <%=  link_to "In", "/loan_check/#{comic.id}" %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
