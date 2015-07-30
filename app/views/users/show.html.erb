@@ -3,8 +3,12 @@
   <div class="row">
       <h1>
         Illib.<%= @user.username %>
-        <span class='funfunfun'><div class="btn btn-primary">Edit Profile</div></span>
-        <span class="funfunfunfun pull-right"><div class="btn btn-success"><%= link_to "Add Comic", "/comics/new"  %></div></span>
+        <span class='funfunfun'>
+          <div class="btn btn-primary">Edit Profile</div>
+        </span>
+        <span class="funfunfunfun pull-right">
+          <%= link_to "Add Comic", "/comics/new", class:"btn btn-success" %>
+        </span>
       </h1>
   </div>
 <table class="table">
@@ -27,14 +31,66 @@
           <td><%= link_to comic.creator, comic %></td>
           <td><%= link_to comic.publisher, comic %></td>
           <td>
-            <% if comic.loan %>
-              <%=  link_to comic.checkin, "/checkin_check/#{comic.id}" %>
+            <% if current_user %>
+              <% if @user.id == current_user.id %>
+                <% if comic.loan %>
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal2-sm"><%= comic.checkin %></button>
+                <% else %>
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">In</button>
+                <% end %>
             <% else %>
-              <%=  link_to "In", "/loan_check/#{comic.id}" %>
+              <% if comic.loan %>
+                <div class="btn btn-danger"><%=  comic.checkin %></div>
+              <% else %>
+                <div class="btn btn-success">In</div>
+              <% end %>
             <% end %>
+          <% end %>
           </td>
         </tr>
-      <% end %>
+
     </tbody>
 </div>
 <!-- post = custom loan_comic method route to it - send id -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <h4>Checkout <%= comic.title %>?</h4>
+          <%= form_tag "/loan/#{comic.id}" do %>
+            <div class="field">
+              <%= label_tag "Who's Borrowing?" %><br>
+              <%= text_field_tag :checkin %>
+            </div>
+            <div class="actions">
+              <%= submit_tag "Loan Confirmed" %>
+            </div>
+          <% end %>
+          <% if current_user %>
+            <%= link_to "cancel", "/users/#{current_user.id}" %>
+          <% else %>
+            <%= link_to "cancel", "/" %>
+          <%end%>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade bs-example-modal2-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="container">
+        <h4>Check-In <%= comic.title %>?</h4>
+        <%= link_to "Check-In", "/checkin/#{comic.id}" %>
+        <% if @user == current_user %>
+          <%= link_to "cancel", "/users/#{current_user.id}" %>
+        <% else %>
+          <%= link_to "cancel", "/" %>
+        <% end %>
+  </div>
+    </div>
+  </div>
+</div>
+      <% end %>
