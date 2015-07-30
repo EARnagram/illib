@@ -1,6 +1,12 @@
 <% provide(:title, "Illib.#{ @user.username }") %>
 <div class="container">
-  <h1>Illib.<%= @user.username %></h1>
+  <div class="row">
+      <h1>
+        Illib.<%= @user.username %>
+        <span class='funfunfun'><div class="btn btn-primary">Edit Profile</div></span>
+        <span class="funfunfunfun pull-right"><div class="btn btn-success"><%= link_to "Add Comic", "/comics/new"  %></div></span>
+      </h1>
+  </div>
 <table class="table">
     <thead>
       <tr>

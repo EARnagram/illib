@@ -17,3 +17,41 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  font-family: Futura;
+}
+
+.navbar-inverse {
+  background-color: #344152;
+}
+
+#home_homie {
+  text-decoration: none;
+}
+
+.bubs {
+  margin-top: 7px;
+}
+
+span.trackcomic {
+  margin: 0 0 0 3px;
+  color: #fdf9f3;
+  font-size: 1.2em;
+}
+
+.funfunfunfun {
+  padding: 0 10px 10px 0;
+}
+
+.funfunfun {
+  margin: 0 0 10px 5px;
+}
+
+.navbar {
+  border-radius: 0px;
+}
+
+.homescreen {
+  background-color: #A2B5CD;
+}

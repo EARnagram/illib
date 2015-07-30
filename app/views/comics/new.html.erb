@@ -3,5 +3,7 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', comics_path %>
+<%= link_to 'Back', "/users/#{ current_user.id }" %>
 </div>
+
+"/users/#{ current_user.id }"

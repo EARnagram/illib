@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Checkout <%= @comic.title %>?</h1>
 <%= form_tag "/loan/#{@comic.id}" do %>
   <div class="field">
@@ -9,3 +10,4 @@
   </div>
 <% end %>
     <%= link_to "cancel", "/users/#{current_user.id}" %>
+</div>
