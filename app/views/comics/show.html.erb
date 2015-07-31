@@ -26,11 +26,13 @@
     </div>
   </div>
 
-  <% if @comic.user.id == current_user.id %>
-    <div class="row">
-      <%= link_to "Edit", edit_comic_path(@comic), class:"col-md-1 btn btn-primary show-comic-buttons" %>
-      <%= link_to "Delete", comic_path(@comic), method: :delete, data: {confirm: "Are you sure?"}, class:"col-md-1 btn btn-danger show-comic-buttons" %>
-    </div>
+  <% if current_user %>
+    <% if @comic.user.id == current_user.id %>
+      <div class="row">
+        <%= link_to "Edit", edit_comic_path(@comic), class:"col-md-1 btn btn-primary show-comic-buttons" %>
+        <%= link_to "Delete", comic_path(@comic), method: :delete, data: {confirm: "Are you sure?"}, class:"col-md-1 btn btn-danger show-comic-buttons" %>
+      </div>
+    <% end %>
   <% end %>
 
 </div>
