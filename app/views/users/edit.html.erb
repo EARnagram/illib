@@ -1,0 +1,54 @@
+<% provide(:title, "Illib.Edit.#{@user.username}") %>
+<div class="container">
+  <h1>Illib.Edit.<%= @user.username %></h1>
+  <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row show-comic-list">
+      <div class="col-md-4">
+        <div class="field abcdefg">
+          <%= f.label "Password: " %>
+          <%= f.password_field :password %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="field abcdefg">
+          <%= f.label "Password Confirmation: " %>
+          <%= f.password_field :password_confirmation %>
+        </div>
+        <div class="field abcdefg">
+          <%= f.label "Email: " %>
+          <%= f.text_field :email %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="field abcdefg">
+          <%= f.label "Favorite Publisher: " %>
+          <%= f.text_field :fav_pub %>
+        </div>
+      </div>
+     </div>
+     <div class="row">
+      <div class="container">
+      <div class="col-md-1 actions abcdefg">
+        <%= f.submit %>
+      </div>
+      <div class="col-md-1">
+      <%= link_to "Delete Account", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to leave us?"}, class:'btn btn-danger abcdefghi' %>
+      </div>
+      <div class="col-md-10"></div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+

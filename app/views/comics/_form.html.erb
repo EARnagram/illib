@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for(@comic) do |f| %>
   <% if @comic.errors.any? %>
     <div id="error_explanation">
@@ -10,61 +11,73 @@
       </ul>
     </div>
   <% end %>
+  <div class="row show-comic-list">
+      <div class="col-md-3">
+        <div class="field form-comic-attributes-x">
+          <%= f.label :title %><br>
+          <%= f.text_field :title %>
+        </div>
+        <div class="field form-comic-attributes-x">
+          <%= f.label :series %><br>
+          <%= f.text_field :series %>
+        </div>
+        <div class="field form-comic-attributes-x">
+          <%= f.label :issue_no %><br>
+          <%= f.text_field :issue_no %>
+        </div>
+        <div class="field form-comic-attributes-x">
+          <%= f.label :img_url %><br>
+          <%= f.text_area :img_url %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="field form-comic-attributes-x">
+          <%= f.label :creator %><br>
+          <%= f.text_field :creator %>
+        </div>
+        <div class="field form-comic-attributes-x">
+          <%= f.label :author %><br>
+          <%= f.text_field :author %>
+        </div>
+        <div class="field form-comic-attributes-x">
+          <%= f.label :publisher %><br>
+          <%= f.text_field :publisher %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="field form-comic-attributes-x">
+          <%= f.label :penciller %><br>
+          <%= f.text_field :penciller %>
+        </div>
+        <div class="field form-comic-attributes-x">
+          <%= f.label :inker %><br>
+          <%= f.text_field :inker %>
+        </div>
+        <div class="field form-comic-attributes-x">
+          <%= f.label :colorist %><br>
+          <%= f.text_field :colorist %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="field form-comic-attributes-x">
+          <%= f.label :letterist %><br>
+          <%= f.text_field :letterist %>
+        </div>
+        <div class="field form-comic-attributes-x">
+          <%= f.label :publish_date %><br>
+          <%= f.text_field :publish_date %>
+        </div>
+        <div class="field form-comic-attributes-x">
+          <%= f.label :print_num %><br>
+          <%= f.text_field :print_num %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :series %><br>
-    <%= f.text_field :series %>
-  </div>
-  <div class="field">
-    <%= f.label :issue_no %><br>
-    <%= f.text_field :issue_no %>
-  </div>
-    <div class="field">
-    <%= f.label :creator %><br>
-    <%= f.text_field :creator %>
-  </div>
-  <div class="field">
-    <%= f.label :author %><br>
-    <%= f.text_field :author %>
-  </div>
-  <div class="field">
-    <%= f.label :publisher %><br>
-    <%= f.text_field :publisher %>
-  </div>
-  <div class="field">
-    <%= f.label :penciller %><br>
-    <%= f.text_field :penciller %>
-  </div>
-  <div class="field">
-    <%= f.label :inker %><br>
-    <%= f.text_field :inker %>
-  </div>
-  <div class="field">
-    <%= f.label :colorist %><br>
-    <%= f.text_field :colorist %>
-  </div>
-  <div class="field">
-    <%= f.label :letterist %><br>
-    <%= f.text_field :letterist %>
-  </div>
-  <div class="field">
-    <%= f.label :publish_date %><br>
-    <%= f.text_field :publish_date %>
-  </div>
-  <div class="field">
-    <%= f.label :print_num %><br>
-    <%= f.text_field :print_num %>
-  </div>
-  <div class="field">
-    <%= f.label :img_url %><br>
-    <%= f.text_area :img_url %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+    <div class="actions btn">
+      <%= f.submit %>
+    </div>
+    <%= link_to 'Back', "/users/#{ current_user.id }", class:"btn back-button-comic-form" %>
   </div>
 <% end %>
+</div>

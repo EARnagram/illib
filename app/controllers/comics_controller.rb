@@ -4,6 +4,7 @@ class ComicsController < ApplicationController
   before_action :authenticate, except: [:index, :show ]
 
   def edit
+    @comic = Comic.find(params[:id])
   end
 
   def index
@@ -29,14 +30,10 @@ class ComicsController < ApplicationController
 
   def update
     @comic = current_user.comics.find(params[:id])
-    respond_to do |format|
-      if @comic.update(comic_params)
-        format.html { redirect_to @comic, notice: 'Comic updated!' }
-        format.json { render :show, status: :ok, location: @comic }
-      else
-        format.html { render :edit }
-        format.json { render json: @comic.errors, status: :unprocessable_entity }
-      end
+    if @comic.update_attributes(comic_params)
+      redirect_to user_path(current_user), notice: 'Comic updated!'
+    else
+      render 'edit'
     end
   end
 

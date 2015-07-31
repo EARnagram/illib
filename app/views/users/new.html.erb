@@ -12,26 +12,36 @@
           </ul>
         </div>
       <% end %>
-    <div class="field">
-      <%= f.label :username %>
-      <%= f.text_field :username %>
-    </div>
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-    </div>
-    <div class="field">
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </div>
-    <div class="field">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
-    </div>
-    <div class="field">
-      <%= f.label :fav_pub %>
-      <%= f.text_field :fav_pub %>
-    </div>
-    <div class="actions"><%= f.submit %></div>
+      <div class="row show-comic-list">
+        <div class="col-md-4">
+          <div class="field abcdefg">
+            <%= f.label "Username: " %>
+            <%= f.text_field :username %>
+          </div>
+          <div class="field abcdefg">
+            <%= f.label "Password: " %>
+            <%= f.password_field :password %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="field abcdefg">
+            <%= f.label "Email: " %>
+            <%= f.text_field :email %>
+          </div>
+          <div class="field abcdefg">
+            <%= f.label "Password Confirmation: " %>
+            <%= f.password_field :password_confirmation %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="field abcdefg">
+            <%= f.label "Favorite Publisher: " %>
+            <%= f.text_field :fav_pub %>
+          </div>
+        </div>
+       </div>
+      <div class="actions abcdefg">
+        <%= f.submit %>
+      </div>
+    <% end %>
   </div>
-  <% end %>

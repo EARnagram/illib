@@ -1,24 +1,37 @@
+<% provide(:title, "Illib.#{@comic.title}") %>
 <div class="container">
-<h2><%= @comic.title %></h2>
-<h4><%= @comic.series %></h4>
-<h4>Issue.no:<%= @comic.issue_no %></h4>
-<p><%= image_tag @comic.img_url, width: 170 %></p>
+  <h2><%= @comic.title %></h2>
+  <h4><%= @comic.series %></h4>
+  <h4><%= @comic.publisher %></h4>
 
-<p><strong>Creator:</strong><%= @comic.creator %></p>
-<p><strong>Author:</strong><%= @comic.author %></p>
-<p><strong>Letterist:</strong><%= @comic.letterist %></p>
-<p><strong>Penciller:</strong><%= @comic.penciller %></p>
-<p><strong>Inker:</strong><%= @comic.inker %></p>
-<p><strong>Colorist:</strong><%= @comic.colorist %></p>
-<p><strong>Publisher:</strong><%= @comic.publisher %></p>
-<p><strong>Publish Date:</strong><%= @comic.publish_date %></p>
-<p><strong>Print Number:</strong><%= @comic.print_num %></p>
 
-<% if @comic.user.id == current_user.id %>
-  <p>
-    <%= link_to "Edit", edit_comic_path(@comic) %>
-    <%= link_to "Delete", comic_path(@comic) , method: :delete, data: {confirm: "Are you sure?"} %>
-  </p>
-<% end %>
+  <div class="container-fluid show-comic-list row">
+    <div class="col-md-3">
+      <%= image_tag @comic.img_url, width: 170, class:"show-comic-icon" %>
+    </div>
+    <div class="col-md-3 show-comic-attributes">
+      <p class="show-comic-attributes-p"><strong>Creator: </strong><%= @comic.creator %></p>
+      <p class="show-comic-attributes-p"><strong>Author: </strong><%= @comic.author %></p>
+      <p class="show-comic-attributes-p"><strong>Letterist: </strong><%= @comic.letterist %></p>
+    </div>
+    <div class="col-md-3 show-comic-attributes">
+      <p class="show-comic-attributes-p"><strong>Penciller: </strong><%= @comic.penciller %></p>
+      <p class="show-comic-attributes-p"><strong>Inker: </strong><%= @comic.inker %></p>
+      <p class="show-comic-attributes-p"><strong>Colorist: </strong><%= @comic.colorist %></p>
+    </div>
+    <div class="col-md-3 show-comic-attributes">
+      <p class="show-comic-attributes-p"><strong>Issue.no: </strong><%= @comic.issue_no %></p>
+      <p class="show-comic-attributes-p"><strong>Publish Date: </strong><%= @comic.publish_date %></p>
+      <p class="show-comic-attributes-p"><strong>Print Number: </strong><%= @comic.print_num %></p>
+    </div>
+  </div>
+
+  <% if @comic.user.id == current_user.id %>
+    <div class="row">
+      <%= link_to "Edit", edit_comic_path(@comic), class:"col-md-1 btn btn-primary show-comic-buttons" %>
+      <%= link_to "Delete", comic_path(@comic), method: :delete, data: {confirm: "Are you sure?"}, class:"col-md-1 btn btn-danger show-comic-buttons" %>
+    </div>
+  <% end %>
+
 </div>
 

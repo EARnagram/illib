@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   get 'checkin/:comic_id', to: 'comics#checkin'
   post 'loan/:comic_id', to: 'comics#loan'
   resources :comics
-  resources :users, only: [:index, :show, :new, :create]
+  resources :users
   resources :sessions, only: [:new, :create, :destroy]
 end
