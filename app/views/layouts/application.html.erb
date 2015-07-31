@@ -15,13 +15,13 @@
           <%= image_tag "bubs.png" %> <span class="trackcomic">Share and Track Your Illustrated Library</span></a>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/">Home</a></li>
+          <li><a href="/" class="comic-print">Home</a></li>
           <% if current_user %>
-          <li><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></li>
-          <li><a href="/logout">Log Out</a></li>
+          <li><a href="/users/<%= current_user.id %>" class="comic-print"><%= current_user.username %></a></li>
+          <li><a href="/logout" class="comic-print">Log Out</a></li>
           <% else %>
-          <li><a href="/login">Log In</a></li>
-          <li><a href="/users/new">Sign Up</a></li>
+          <li><a href="/login" class="comic-print">Log In</a></li>
+          <li><a href="/users/new" class="comic-print">Sign Up</a></li>
           <% end %>
         </ul>
       </div>
