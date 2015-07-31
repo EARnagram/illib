@@ -56,7 +56,7 @@
               <% else %>
                 <div class="btn btn-success">In</div>
               <% end %>
-          <% end %>
+            <% end %>
           </td>
         </tr>
       <% end %>
@@ -78,7 +78,7 @@
           </div>
           <div class="modal-body">
             <div class="container-fluid">
-              <%= form_tag "/loan/#{comic.id}" do %>
+              <%= form_tag("/loan/#{comic.id}", method: :post) do %>
                 <div class="field center">
                   <%= label_tag "Who's Borrowing?" %><br>
                   <%= text_field_tag :checkin %>
