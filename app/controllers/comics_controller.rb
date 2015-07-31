@@ -43,7 +43,7 @@ class ComicsController < ApplicationController
     redirect_to current_user
   end
 
-
+  # Changes loan value if book is checked out
   def loan
     @comic = Comic.find(params[:comic_id])
     @comic.loan = true
@@ -52,10 +52,12 @@ class ComicsController < ApplicationController
     redirect_to current_user
   end
 
+  # Checks if loan is true or false
   def loan_check
     @comic = Comic.find(params[:comic_id])
   end
 
+  # Changes checkin value
   def checkin
     @comic = Comic.find(params[:comic_id])
     @comic.loan = false
@@ -64,6 +66,7 @@ class ComicsController < ApplicationController
     redirect_to current_user
   end
 
+  # Checks if checkin value is not an empty string
   def checkin_check
     @comic = Comic.find(params[:comic_id])
   end

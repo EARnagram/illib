@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+
+  # Defines current session user
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
@@ -12,6 +14,8 @@ class ApplicationController < ActionController::Base
     def logged_in?
     !!current_user
   end
+
+  # Unused authenticate warning
 
   def authenticate
     unless logged_in?
