@@ -14,6 +14,14 @@ I'm always lending out my comics and I wanted a simple way of keeping track of t
 
 I planned for a minimal design and implemented it with bootstrap. The basic functions are working, but I hope to get to the icebox ideas in the future.
 
+#### Technologies Used
+- Ruby
+- Ruby on Rails (db postgres)
+- Bootstrap
+- CSS, Jquery & Javascript
+- HTML
+
+
 #### MVP
 
 - ~~As a user, I'd like to see a homepage that indexes all the users.~~
